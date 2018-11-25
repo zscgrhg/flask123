@@ -5,6 +5,17 @@
     <title>facenet</title>
 </head>
 <body>
+<h1>save</h1>
+<form action="/save" id="face_save" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><input name="face" type="file"></td>
+        </tr>
+        <tr>
+            <td><input type="submit"></td>
+        </tr>
+    </table>
+</form>
 <h1>facework</h1>
 <form action="/upload" id="face_upload" method="post" enctype="multipart/form-data">
     <table>
@@ -20,6 +31,6 @@
     </table>
 </form>
 <h1>result matrix</h1>
-
+{{matrix}}
 </body>
 </html>
