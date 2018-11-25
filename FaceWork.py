@@ -130,7 +130,9 @@ def save(image, simpleName, image_size=160, margin=44, gpu_memory_fraction=1.0):
     bb[3] = np.minimum(det[3] + margin / 2, img_size[0])
     cropped = img[bb[1]:bb[3], bb[0]:bb[2], :]
     aligned = misc.imresize(cropped, (image_size, image_size), interp='bilinear')
+    prewhitened = facenet.prewhiten(aligned)
     misc.imsave("static/facedb/" + simpleName, aligned)
+    misc.imsave("static/facedbpw/" + simpleName, prewhitened)
 
 def compare(face1, face2):
     return main(parse_arguments(["model/20180408-102900.pb", face1, face2]))
